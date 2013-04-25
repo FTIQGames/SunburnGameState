@@ -1,0 +1,39 @@
+﻿Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStateManagementSample", "GameStateManagementSample\GameStateManagementSample-Pro.csproj", "{5DA03D18-E2E7-4A0C-8788-74447823A89D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStateManagementSampleContent", "GameStateManagementSampleContent\GameStateManagementSampleContent-Pro.contentproj", "{BD3D37D1-E7C1-4363-9DE9-7EABC8D9E1EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Windows Phone = Debug|Windows Phone
+		Debug|x86 = Debug|x86
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Windows Phone = Release|Windows Phone
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Debug|Windows Phone.ActiveCfg = Debug|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Debug|Windows Phone.Build.0 = Debug|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Debug|x86.ActiveCfg = Debug|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Debug|x86.Build.0 = Debug|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Release|Mixed Platforms.Build.0 = Release|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Release|Windows Phone.ActiveCfg = Release|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Release|Windows Phone.Build.0 = Release|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Release|x86.ActiveCfg = Release|x86
+		{5DA03D18-E2E7-4A0C-8788-74447823A89D}.Release|x86.Build.0 = Release|x86
+		{BD3D37D1-E7C1-4363-9DE9-7EABC8D9E1EB}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{BD3D37D1-E7C1-4363-9DE9-7EABC8D9E1EB}.Debug|Windows Phone.ActiveCfg = Debug|x86
+		{BD3D37D1-E7C1-4363-9DE9-7EABC8D9E1EB}.Debug|x86.ActiveCfg = Debug|x86
+		{BD3D37D1-E7C1-4363-9DE9-7EABC8D9E1EB}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{BD3D37D1-E7C1-4363-9DE9-7EABC8D9E1EB}.Release|Windows Phone.ActiveCfg = Release|x86
+		{BD3D37D1-E7C1-4363-9DE9-7EABC8D9E1EB}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

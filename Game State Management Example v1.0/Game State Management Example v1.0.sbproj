@@ -1,0 +1,39 @@
+<project>
+  <CustomPreprocessorDefinesEditionFramework>
+  </CustomPreprocessorDefinesEditionFramework>
+  <CustomPreprocessorDefinesEditionIndie>
+  </CustomPreprocessorDefinesEditionIndie>
+  <CustomPreprocessorDefinesEditionProStudio>
+  </CustomPreprocessorDefinesEditionProStudio>
+  <ExcludedProjectNamesEditionFramework>
+  </ExcludedProjectNamesEditionFramework>
+  <ExcludedProjectNamesEditionIndie>
+  </ExcludedProjectNamesEditionIndie>
+  <ResourceGuid>c9df32d3-507b-43ca-a783-0fd7badb5d7b</ResourceGuid>
+  <ResourceType>Example</ResourceType>
+  <LicenseType>SunBurnEULA</LicenseType>
+  <Name>Game State Management Example v1.0</Name>
+  <Description>This example was created using the AppHub's GSM example and is now setup to use the SunBurn Engine for Windows, Xbox360, and Windows Phone 7.5.</Description>
+  <Instructions>
+  </Instructions>
+  <AuthorUrl>https://github.com/CodeHelix/GSM-SunBurn-2.0</AuthorUrl>
+  <Screenshot1>..\..\Pictures\Windows Example.jpg</Screenshot1>
+  <Screenshot2>..\..\Pictures\WP7 Example.jpg</Screenshot2>
+  <Screenshot3>
+  </Screenshot3>
+  <SunBurnVersion>2.0.18.7</SunBurnVersion>
+  <WindowsSolution>GameStateManagementSample.sln</WindowsSolution>
+  <XboxSolution>
+  </XboxSolution>
+  <WindowsPhoneSolution>GameStateManagementSample WP7.sln</WindowsPhoneSolution>
+  <TargetEditionFramework>False</TargetEditionFramework>
+  <TargetEditionIndie>False</TargetEditionIndie>
+  <TargetEditionProStudio>True</TargetEditionProStudio>
+  <TargetPlatformXbox360>False</TargetPlatformXbox360>
+  <TargetPlatformWindowsPhone>True</TargetPlatformWindowsPhone>
+  <FileName>C:\Users\dwc2987@msn.com\Desktop\GameStateManagementSample\Game State Management Example v1.0.sbproj</FileName>
+  <ExcludedProjectNamesEditionFrameworkList>System.Collections.Generic.List`1[System.String]</ExcludedProjectNamesEditionFrameworkList>
+  <ExcludedProjectNamesEditionIndieList>System.Collections.Generic.List`1[System.String]</ExcludedProjectNamesEditionIndieList>
+  <Screenshot4>
+  </Screenshot4>
+</project>

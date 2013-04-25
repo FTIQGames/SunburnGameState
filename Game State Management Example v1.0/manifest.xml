@@ -1,0 +1,21 @@
+<manifest version="1.1" resourcetype="Example" resourceguid="c9df32d3-507b-43ca-a783-0fd7badb5d7b">
+  <detail name="Game State Management Example v1.0" sunburnversion="2.0.18.7" licensefile="LICENSE AGREEMENT-SunBurn EULA.rtf" licensetype="SunBurnEULA" authorname="David" authorurl="https://github.com/CodeHelix/GSM-SunBurn-2.0">This example was created using the AppHub's GSM example and is now setup to use the SunBurn Engine for Windows, Xbox360, and Windows Phone 7.5.</detail>
+  <instructions>
+  </instructions>
+  <screenshots>
+    <file>Screenshots\Windows Example.jpg</file>
+    <file>Screenshots\WP7 Example.jpg</file>
+  </screenshots>
+  <conditionals>
+    <file edition="Pro" platform="Windows">GameStateManagementSample-Pro.sln</file>
+    <file edition="Pro" platform="Windows">GameStateManagementSample\GameStateManagementSample-Pro.csproj</file>
+    <file edition="Pro" platform="Wp7">GameStateManagementSampleContent\GameStateManagementSampleContent-Pro.contentproj</file>
+    <file edition="Studio" platform="Windows">GameStateManagementSample-Studio.sln</file>
+    <file edition="Studio" platform="Windows">GameStateManagementSample\GameStateManagementSample-Studio.csproj</file>
+    <file edition="Studio" platform="Wp7">GameStateManagementSampleContent\GameStateManagementSampleContent-Studio.contentproj</file>
+    <file edition="Pro" platform="Wp7">GameStateManagementSample-Pro-Wp7.sln</file>
+    <file edition="Pro" platform="Wp7">GameStateManagementSample\GameStateManagementSample-Pro-Wp7.csproj</file>
+    <file edition="Studio" platform="Wp7">GameStateManagementSample-Studio-Wp7.sln</file>
+    <file edition="Studio" platform="Wp7">GameStateManagementSample\GameStateManagementSample-Studio-Wp7.csproj</file>
+  </conditionals>
+</manifest>
