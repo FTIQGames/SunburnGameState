@@ -39,16 +39,20 @@ namespace GameStateManagementSample
         ContentManager content;
         SpriteFont gameFont;
 
-        Matrix view;
-        Matrix projection;
-
+        // Scene constants that control the number of world units visible
+        // in the view and the number of units wide the world is.
         const float viewWidth = 2.0f;
+        const int worldSize = 10;
 
         float pauseAlpha;
 
         InputAction pauseAction;
 
+        // Scene and camera objects.
+        BaseRenderableEffect groundMaterial;
+        BaseRenderableEffect pipesMaterial;
         BaseRenderableEffect playerMaterial;
+        SpriteContainer staticSceneSprites;
         SpriteContainer playerSprites;
         float playerRotation = 0.0f;
         Vector2 playerPosition = new Vector2();
@@ -87,10 +91,46 @@ namespace GameStateManagementSample
 
                 gameFont = content.Load<SpriteFont>("gamefont");
 
+                groundMaterial = content.Load<BaseRenderableEffect>("Materials/Forward/tile_floor");
+                pipesMaterial = content.Load<BaseRenderableEffect>("Materials/Forward/pipes");
                 playerMaterial = content.Load<BaseRenderableEffect>("Materials/Forward/dude_sheet");
 
+                // First create and submit the empty player container.
                 playerSprites = ScreenManager.spriteManager.CreateSpriteContainer();
                 ScreenManager.sceneInterface.ObjectManager.Submit(playerSprites);
+
+                // Next create the static scenery container.
+                staticSceneSprites = ScreenManager.spriteManager.CreateSpriteContainer();
+
+                // Build the static scenery during content load instead of every frame.
+                // This accelerates sprite rendering as only dynamic sprites need to be
+                // built each frame.
+                //
+                // Note: this example could just as easily use a single large sprite, but
+                // it's illustrating a tile-based background that can contain different
+                // materials per-tile.
+
+                int center = worldSize / 2;
+                staticSceneSprites.Begin();
+
+                for (int x = 0; x < worldSize; x++)
+                {
+                    for (int y = 0; y < worldSize; y++)
+                    {
+                        // Note: the ground layer depth is set to 1, the furthest from the camera (0 is
+                        // closest similar to XNA SpriteBatch).
+                        staticSceneSprites.Add(groundMaterial, Vector2.One, new Vector2(x - center, y - center), 1.0f);
+
+                        // Note: the pipe layer depth is above the ground and player depth to properly
+                        // z-sort AND to add height for shadow casting.
+                        staticSceneSprites.Add(pipesMaterial, Vector2.One, new Vector2(x - center, y - center), 0.75f);
+                    }
+                }
+
+                staticSceneSprites.End();
+
+                // Finally submit the static scenery container.
+                ScreenManager.sceneInterface.ObjectManager.Submit(staticSceneSprites);
 
                 // Load the content repository, which stores all assets imported via the editor.
                 // This must be loaded before any other assets.
@@ -114,7 +154,7 @@ namespace GameStateManagementSample
                 
                 // Load the scene environment settings.
                 ScreenManager.environment = content.Load<SceneEnvironment>("Environment/Environment");
-
+                
                 // TODO: use this.Content to load your game content here
 
                 // A real game would probably have more content than this sample, so
@@ -180,10 +220,6 @@ namespace GameStateManagementSample
                 // it by inserting something more interesting in this space :-)
             }
 
-            view = Matrix.CreateLookAt(Vector3.One * 50, Vector3.Zero, Vector3.Up);
-            projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(90.0f),
-                    StarterGame.Instance.graphics.GraphicsDevice.Viewport.AspectRatio, 0.1f, ScreenManager.environment.VisibleDistance);
-
             // Update all contained managers.
             ScreenManager.sceneInterface.Update(gameTime);
         }
@@ -203,6 +239,58 @@ namespace GameStateManagementSample
 
             KeyboardState keyboardState = input.CurrentKeyboardStates[playerIndex];
             GamePadState gamePadState = input.CurrentGamePadStates[playerIndex];
+
+            // Get the time scale since the last update call.
+            float timeframe = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            float amount = 0.0f;
+            Vector2 movedirection = new Vector2();
+
+            if (gamePadState.IsConnected)
+            {
+                // Get the controller direction.
+                movedirection.X = -gamePadState.ThumbSticks.Left.X;
+                movedirection.Y = gamePadState.ThumbSticks.Left.Y;
+
+                // Get the controller magnitude.
+                amount = movedirection.Length();
+            }
+            else
+            {
+                // No gamepad, so grab the keyboard state.
+                KeyboardState keyboard = Keyboard.GetState();
+
+                // Get the keyboard direction.
+                if (keyboard.IsKeyDown(Keys.W) || keyboard.IsKeyDown(Keys.Up))
+                    movedirection.Y += 1.0f;
+                if (keyboard.IsKeyDown(Keys.S) || keyboard.IsKeyDown(Keys.Down))
+                    movedirection.Y -= 1.0f;
+                if (keyboard.IsKeyDown(Keys.A) || keyboard.IsKeyDown(Keys.Left))
+                    movedirection.X += 1.0f;
+                if (keyboard.IsKeyDown(Keys.D) || keyboard.IsKeyDown(Keys.Right))
+                    movedirection.X -= 1.0f;
+
+                if (movedirection != Vector2.Zero)
+                {
+                    // Normalize direction to 1.0 magnitude to avoid walking faster at angles.
+                    movedirection.Normalize();
+                    amount = 1.0f;
+                }
+            }
+
+            // Increment animation unless idle.
+            if (amount == 0.0f)
+                playerCurrentAnimationIndex = playerIdleAnimationIndex;
+            else
+            {
+                playerCurrentAnimationIndex += amount * timeframe * 20.0f;
+                playerCurrentAnimationIndex = playerCurrentAnimationIndex % 16;
+
+                // Rotate the player towards the controller direction.
+                playerRotation = (float)(Math.Atan2(movedirection.Y, movedirection.X) + Math.PI / 2.0);
+
+                // Move player based on the controller direction and time scale.
+                playerPosition += movedirection * timeframe;
+            }
 
             // The game pauses either if the user presses the pause button, or if
             // they unplug the active gamepad. This requires us to keep track of
@@ -232,17 +320,6 @@ namespace GameStateManagementSample
         /// </summary>
         public override void Draw(GameTime gameTime)
         {
-            // This game has a blue background. Why? Because!
-            ScreenManager.GraphicsDevice.Clear(ClearOptions.Target,
-                                               Color.CornflowerBlue, 0, 0);
-
-            // Our player and enemy are both actually just text strings.
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
-
-            spriteBatch.Begin();
-
-            spriteBatch.End();
-
             // Build the dynamic player sprites.
             playerSprites.Begin();
 

@@ -9,7 +9,7 @@ AddressModeU: Wrap
 AddressModeV: Wrap
 AddressModeW: Wrap
 DiffuseColor: 0.5882353 0.5882353 0.5882353
-DiffuseMap: "..\..\Textures\dude_sheet.png"
+DiffuseMap: "..\..\Textures\tile_floor.jpg"
 DoubleSided: False
 Elasticity: 0.25
 EmissiveColor: 0 0 0
@@ -18,13 +18,13 @@ FresnelMicrofacetDistribution: 0.3
 FresnelReflectBias: 0.2
 FresnelReflectOffset: 0.8
 Friction: 0.25
-NormalMap: "..\..\Textures\dude_sheet_normal.jpg"
+NormalMap: "..\..\Textures\tile_floor_normal.jpg"
 ParallaxMap: ""
 ParallaxOffset: 0
 ParallaxScale: 0
-SpecularAmount: 0.75
+SpecularAmount: 0.3
 SpecularColorMap: ""
-SpecularPower: 15
+SpecularPower: 64
 TransparencyAmount: 1
-TransparencyMode: Clip
-TransparencyThreshold: 0.3
+TransparencyMode: None
+TransparencyThreshold: 1

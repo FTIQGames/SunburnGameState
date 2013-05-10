@@ -56,13 +56,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Scenes\Scene.scene">
-      <Name>Scene</Name>
-      <Importer>SceneImporter</Importer>
-      <Processor>SceneProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Content.repo">
       <Name>Content</Name>
       <Importer>ContentRepositoryImporter</Importer>
@@ -115,6 +108,25 @@
       <Name>dude_sheet_normal</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Scenes\scene.scene">
+      <Name>scene</Name>
+      <Importer>SceneImporter</Importer>
+      <Processor>SceneProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Materials\Forward\pipes.mat">
+      <Name>pipes</Name>
+      <Importer>LightingMaterialImporter</Importer>
+      <Processor>LightingMaterialProcessor</Processor>
+    </Compile>
+    <Compile Include="Materials\Forward\tile_floor.mat">
+      <Name>tile_floor</Name>
+      <Importer>LightingMaterialImporter</Importer>
+      <Processor>LightingMaterialProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

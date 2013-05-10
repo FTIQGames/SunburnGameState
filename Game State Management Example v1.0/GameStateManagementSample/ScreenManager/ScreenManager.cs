@@ -144,11 +144,11 @@ namespace GameStateManagement
             // to easily be added, removed, or replaced with custom implementations.
             //
             sceneInterface = new SceneInterface();
-            sceneInterface.CreateDefaultManagers(RenderingSystemType.Forward, CollisionSystemType.Physics, true);
+            sceneInterface.CreateDefaultManagers(RenderingSystemType.Forward, true);
 
             // Create the frame buffers used for rendering (sized to the backbuffer) and
             // assign them to the ResourceManager so we don't have to worry about cleanup.
-            frameBuffers = new FrameBuffers(DetailPreference.High, DetailPreference.Medium);
+            frameBuffers = new FrameBuffers(DetailPreference.Low, DetailPreference.Low);
             sceneInterface.ResourceManager.AssignOwnership(frameBuffers);
 
             // Create the sprite manager used to create and organize sprite containers for 2D rendering.

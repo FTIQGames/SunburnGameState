@@ -8,23 +8,23 @@ Locale: en-US
 AddressModeU: Wrap
 AddressModeV: Wrap
 AddressModeW: Wrap
-DiffuseColor: 0.5882353 0.5882353 0.5882353
-DiffuseMap: "..\..\Textures\dude_sheet.png"
+DiffuseColor: 0 0 0
+DiffuseMap: "..\..\Textures\pipes.png"
 DoubleSided: False
 Elasticity: 0.25
 EmissiveColor: 0 0 0
 EmissiveMap: ""
-FresnelMicrofacetDistribution: 0.3
-FresnelReflectBias: 0.2
-FresnelReflectOffset: 0.8
+FresnelMicrofacetDistribution: 0
+FresnelReflectBias: 0
+FresnelReflectOffset: 0
 Friction: 0.25
-NormalMap: "..\..\Textures\dude_sheet_normal.jpg"
+NormalMap: "..\..\Textures\pipes_normal.jpg"
 ParallaxMap: ""
 ParallaxOffset: 0
 ParallaxScale: 0
-SpecularAmount: 0.75
+SpecularAmount: 0.35
 SpecularColorMap: ""
-SpecularPower: 15
+SpecularPower: 24
 TransparencyAmount: 1
 TransparencyMode: Clip
-TransparencyThreshold: 0.3
+TransparencyThreshold: 0.25

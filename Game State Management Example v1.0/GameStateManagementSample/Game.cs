@@ -205,6 +205,14 @@ namespace GameStateManagementSample
         }
 #endif
 
+        protected override void LoadContent()
+        {
+            // Apply the user preferences (example - not required).
+            screenManager.sceneInterface.ApplyPreferences(preferences);
+
+            base.LoadContent();
+        } 
+
         #region Update Methods
         /// <summary>
         /// Allows the game to run logic such as updating the world,
